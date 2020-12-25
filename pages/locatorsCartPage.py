@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-
-
-class ItemPageLocators():
+class CartLocators():
     TOTAL_PRICE = (By.CLASS_NAME, "styled-price")
-    CART_BUTTON = (By.CLASS_NAME, 'button_add')
+    CART_ITEMS = (By.TAG_NAME, "tbody")
