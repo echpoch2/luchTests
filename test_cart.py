@@ -15,12 +15,12 @@ def test_add_to_cart_two_item():
 def test_check_total_cost():
     pass
 
+
 @given(parsers.cfparse("I am on {page:S} page"))
 def start_page(browser,page):
     page = ItemPage(browser,page)
     page.open()
     return page
-
 @when("I add item to cart")
 def add_item(browser):
     ItemPage(browser).add_item_to_cart()
