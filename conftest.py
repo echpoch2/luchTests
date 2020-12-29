@@ -4,6 +4,9 @@ from selenium.webdriver.opera.options import Options
 
 @pytest.fixture(scope="session")
 def browser():
-    driver = Opera(executable_path='D:\web\operadriver.exe')
+    opts = Options()
+    opts.headless = True
+    assert opts.headless
+    driver = Opera(executable_path='D:\web\operadriver.exe',options=opts)
     yield driver
     driver.quit()
