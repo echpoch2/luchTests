@@ -1,4 +1,4 @@
-Feature: Adding
+Feature: Cart
     Scenario: Adding one item
         Given I am on https://luch.by/kollektsii/80-s/740257587/ page
         When I add item to cart
@@ -10,3 +10,7 @@ Feature: Adding
     Scenario: Check total cost
         Given I am on https://luch.by/cart page
         Then Sum of each item cost should be equals to total cost
+    Scenario: Delete one item
+        Given I am on https://luch.by/cart page
+        When I press DELETE_BUTTON of first item
+        Then I should see 1 items in my cart

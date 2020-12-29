@@ -26,6 +26,5 @@ def type_keys_to_email(browser,btn):
     page.click_on_button(btn)
 @then(parsers.cfparse("I should see popup with {type:w} message"))
 def check_type_of_popup(browser,type):
-    print(11111)
     assert MainPage(browser).get_type_of_popup()==type
 
