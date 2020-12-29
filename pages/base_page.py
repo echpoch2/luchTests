@@ -17,12 +17,16 @@ class BasePage():
             elements[0].click()
         if (element == "PROMO_BUTTON"):
             self.browser.find_element(*CartLocators.PROMO_BUTTON).click()
+        if (element == "SEARCH_BUTTON"):
+            self.browser.find_element(*MainPageLocators.SEARCH_BUTTON).click()
     def type_to_field(self,text,field):
         print(field,text)
         if(field=="EMAIL_INPUT"):
             self.browser.find_element(*MainPageLocators.EMAIL_INPUT).send_keys(text)
         if (field == "PROMO_INPUT"):
             self.browser.find_element(*CartLocators.PROMO_INPUT).send_keys(text)
+        if (field == "SEARCH_INPUT"):
+            self.browser.find_element(*MainPageLocators.SEARCH_INPUT).send_keys(text)
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)

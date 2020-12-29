@@ -20,21 +20,23 @@ def start_page(browser,page):
 @when(parsers.cfparse("I don't type to SEARCH_INPUT"))
 def type_keys_to_email(browser):
     return False
-@when(parsers.cfparse("I type {email:S} to {field:w}"))
-def type_keys_to_email(browser,email,field):
+@when(parsers.cfparse("I type {text:S} to {field:w}"))
+def type_keys_to_email(browser,text,field):
     page = MainPage(browser)
-    page.type_to_field(email,field)
+    page.type_to_field(text,field)
 @when(parsers.cfparse("I press {btn:S}"))
 def type_keys_to_email(browser,btn):
     page = MainPage(browser)
     page.click_on_button(btn)
+
 @then(parsers.cfparse("I should see label with error message about empty query"))
 def check_result_empty(browser):
-    assert True
+    assert MainPage(browser).get_search_result() == "empty query"
+
 @then(parsers.cfparse("I should see label with error message about empty result"))
 def check_result_incorrect(browser):
-    assert True
+    assert MainPage(browser).get_search_result() == "empty result"
 @then(parsers.cfparse("I should see search results"))
 def check_result(browser):
-    assert True
+    MainPage(browser).get_search_result() == "success search"
 
